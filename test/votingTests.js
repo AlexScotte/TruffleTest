@@ -25,14 +25,14 @@ contract("Voting", accounts => {
             voting = await Voting.new({ from: _admin });
         });
 
-        it("...Should store the administrator address.", async () => {
+        it("...Should store the administrator address", async () => {
 
             var owner = await voting.owner.call();
             expect(owner).to.equal(_admin);
             expect(owner).not.equal(_voter1);
         });
 
-        it("...Should default winning proposal ID be 0.", async () => {
+        it("...Should default winning proposal ID be 0", async () => {
 
             var receipt = await voting.workflowStatus.call();
             expect(receipt).to.be.bignumber.equal(BN(0));
@@ -195,7 +195,7 @@ contract("Voting", accounts => {
                 );
             });
 
-            it("...Should revert if proposal doesn't exists", async () => {
+            it("...Should revert if the proposal doesn't exists", async () => {
 
                 await voting.startProposalsRegistering({ from: _admin });
                 await voting.addProposal(proposal1, { from: _voter1 });
